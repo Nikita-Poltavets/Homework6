@@ -1,4 +1,4 @@
-package com.homework.nix;
+package com.homework.nix.exception;
 
 public class VehicleException extends RuntimeException {
 

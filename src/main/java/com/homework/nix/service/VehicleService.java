@@ -1,6 +1,8 @@
-package com.homework.nix;
+package com.homework.nix.service;
 
-public class Vehicle {
+import com.homework.nix.exception.VehicleException;
+
+public class VehicleService {
 
     private boolean isVehicleWork = true;
 

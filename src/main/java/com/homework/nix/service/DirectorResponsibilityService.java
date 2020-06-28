@@ -1,6 +1,8 @@
-package com.homework.nix;
+package com.homework.nix.service;
 
-public class DirectorResponsibility {
+import com.homework.nix.data.Group;
+
+public class DirectorResponsibilityService {
 
     public void allResponsibility(Group group){
         System.out.println("Помогает команде.");
