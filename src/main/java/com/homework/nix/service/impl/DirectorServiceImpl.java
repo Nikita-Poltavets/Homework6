@@ -6,7 +6,7 @@ import com.homework.nix.service.DirectorResponsibilityService;
 import com.homework.nix.service.DirectorService;
 import com.homework.nix.service.VehicleService;
 
-public class DirectorServiceImlp implements DirectorService<Group> {
+public class DirectorServiceImpl implements DirectorService<Group> {
 
     private VehicleService vehicleService = ObjectFactory.getInstance().createObject(VehicleService.class);
     private DirectorResponsibilityService directorResponsibilityService = ObjectFactory.getInstance().createObject(DirectorResponsibilityService.class);
