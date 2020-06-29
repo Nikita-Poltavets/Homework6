@@ -1,10 +1,11 @@
 package com.homework.nix.service;
 
 import com.homework.nix.data.Group;
+import com.homework.nix.service.impl.VehicleServiceImpl;
 
 public class DirectorService {
 
-    private VehicleService vehicleService = new VehicleService();
+    private VehicleService vehicleService = new VehicleServiceImpl();
     private DirectorResponsibilityService directorResponsibilityService = new DirectorResponsibilityService();
 
     public void leadTheDevelopmentProcess(Group group){
