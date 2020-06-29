@@ -1,3 +1,7 @@
 package com.homework.nix.data;
 
-public class Group { }
+import com.homework.nix.data.abstr.Employee;
+
+public class Group implements Employee{
+
+}
