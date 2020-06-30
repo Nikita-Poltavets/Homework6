@@ -3,24 +3,29 @@ package com.homework.nix.config.impl;
 import com.homework.nix.config.ApplicationConfiguration;
 import org.reflections.Reflections;
 
+import java.util.Map;
 import java.util.Set;
 
 public class JavaApplicationConfiguration implements ApplicationConfiguration {
 
     private Reflections scanner;
+    private Map<Class, Class> mapImpl;
 
 
-    public JavaApplicationConfiguration(String packageToScan){
+    public JavaApplicationConfiguration(String packageToScan, Map<Class, Class> mapImpl){
         this.scanner = new Reflections(packageToScan);
+        this.mapImpl = mapImpl;
 
     }
 
     @Override
     public <T> Class<? extends T> getCurrentImplementation(Class<T> type) {
-        Set<Class<? extends T>> children = scanner.getSubTypesOf(type);
-        if(children.size() != 1){
-            throw new RuntimeException("Может быть только одна имплементация");
-        }
-        return children.iterator().next();
+        return mapImpl.computeIfAbsent(type, aClass -> {
+            Set<Class<? extends T>> children = scanner.getSubTypesOf(type);
+            if(children.size() != 1){
+                throw new RuntimeException("Может быть только одна имплементация");
+            }
+            return children.iterator().next();
+        });
     }
 }

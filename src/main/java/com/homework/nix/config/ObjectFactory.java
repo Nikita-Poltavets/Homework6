@@ -1,8 +1,12 @@
 package com.homework.nix.config;
 
 import com.homework.nix.config.impl.JavaApplicationConfiguration;
+import com.homework.nix.service.VehicleService;
+import com.homework.nix.service.impl.WorkProcessServiceImpl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ObjectFactory {
 
@@ -10,7 +14,9 @@ public class ObjectFactory {
     private ApplicationConfiguration config;
 
     private ObjectFactory(){
-        config = new JavaApplicationConfiguration("com.homework.nix");
+        config = new JavaApplicationConfiguration(
+                "com.homework.nix",
+                new HashMap<>(Map.of(VehicleService.class, WorkProcessServiceImpl.class)));
     }
 
     public static ObjectFactory getInstance() {
